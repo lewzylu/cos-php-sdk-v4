@@ -14,7 +14,7 @@ class Test extends \PHPUnit_Framework_TestCase {
     private $localpath;
     protected function setUp() {
         $config = array(
-            'app_id' => '1252448703',
+            'app_id' => getenv('COS_APPID'),
             'secret_id' => getenv('COS_KEY'),
             'secret_key' => getenv('COS_SECRET'),
             'region' => getenv('COS_REGION_V4'),   // bucket所属地域：华北 'tj' 华东 'sh' 华南 'gz'
@@ -22,7 +22,7 @@ class Test extends \PHPUnit_Framework_TestCase {
         );
         $this->cosApi = new Api($config);
         $this->bucket = 'testbucketv4'. $config['region'];
-        $this->cospath = '→↓←→↖↗↙↘! \"#$%&\'()*+,-./0123456789:;<=>@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+        $this->cospath = '→↓←→↖↗↙↘! \"#$%&\'()*+,-.0\/123456789:;<=>@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}';
         $this->localpath = "111";
         $this->folder = "新建folder";
 
